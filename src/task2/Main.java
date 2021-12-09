@@ -48,7 +48,6 @@ public class Main {
         for (int i = 0; i < arrayList.size(); i++) {
             avg += arrayList.get(i).getAge();
         }
-
         avg /= arrayList.size();
 
         return avg;
@@ -67,7 +66,6 @@ public class Main {
         for (int i = 0; i < temp.size(); i++) {
             avg += temp.get(i).getAge();
         }
-
         avg /= temp.size();
 
         return avg;
@@ -90,8 +88,8 @@ public class Main {
                 }
             }
         }
-
         avg /= size;
+
         return avg;
     }
 
