@@ -32,27 +32,6 @@ public class Main {
         printFemaleAdultUAEmployeeEmails(arrayList);
     }
 
-    public static void printUsersByEmail(ArrayList<User> arrayList, String substring) {
-        for (User value : arrayList) {
-            if (value.getEmail().contains("@" + substring)) {
-                String key = value.getFullName();
-                System.out.println(key);
-            }
-        }
-    }
-
-    public static void printFemaleAdultUAEmployeeEmails(ArrayList<User> arrayList) {
-        for (User value : arrayList) {
-            if (value instanceof Employee && value.getGender() == 'F' &&
-                    (value.getAge() >= 18 && value.getAge() <= 30) &&
-                        value.getResidenceCountry() == "UA") {
-                String key = value.getEmail();
-                System.out.println(key);
-            }
-        }
-    }
-
-
     private static void getUsersList(ArrayList<User> arrayList) {
         System.out.println("Тільки Users: ");
         for (User user : arrayList) {
@@ -125,5 +104,25 @@ public class Main {
                 + departments[1] + " - " + averageSalary(arrayList, departments[1]) + "$ \t"
                 + departments[2] + " - " + averageSalary(arrayList, departments[2]) + "$ \t"
         );
+    }
+
+    public static void printUsersByEmail(ArrayList<User> arrayList, String substring) {
+        for (User value : arrayList) {
+            if (value.getEmail().contains("@" + substring)) {
+                String key = value.getFullName();
+                System.out.println(key);
+            }
+        }
+    }
+
+    public static void printFemaleAdultUAEmployeeEmails(ArrayList<User> arrayList) {
+        for (User value : arrayList) {
+            if (value instanceof Employee && value.getGender() == 'F' &&
+                    (value.getAge() >= 18 && value.getAge() <= 30) &&
+                    value.getResidenceCountry() == "UA") {
+                String key = value.getEmail();
+                System.out.println(key);
+            }
+        }
     }
 }
