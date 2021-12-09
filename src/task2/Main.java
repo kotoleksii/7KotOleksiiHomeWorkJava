@@ -1,7 +1,6 @@
 package task2;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,13 +21,9 @@ public class Main {
         printAverageSalary(arrayList);
 
         // - Отримати користувачів у яких пошта "gmail.com";
-        System.out.println("\nКористувачі з поштою \"gmail.com\": ");
-        // TODO
         printUsersByEmail(arrayList, "gmail.com");
 
         // - Отримати електронні скриньки всіх повнолітніх жінок, не старших 30ти, які проживають в Україні та працюють
-        System.out.println("\nЕлектронні скриньки працюючих жінок не старших 30ти: ");
-        // TODO
         printFemaleAdultUAEmployeeEmails(arrayList);
     }
 
@@ -36,11 +31,12 @@ public class Main {
         System.out.println("Тільки Users: ");
         for (User user : arrayList) {
             if (user instanceof Employee == false)
-                System.out.println("Name: " + user.getFullName() +
-                        ", Age: " + user.getAge() +
+                System.out.println(
+                                "Name: " + user.getFullName() +
+                            ", Age: " + user.getAge() +
                         ", Gender: " + user.getGender() +
-                        ", Email: " + user.getEmail() +
-                        ", Country: " + user.getResidenceCountry() + ";"
+                    ", Email: " + user.getEmail() +
+                ", Country: " + user.getResidenceCountry() + ";"
                 );
         }
     }
@@ -101,12 +97,14 @@ public class Main {
 
         System.out.println("Середній оклад на відділ: "
                 + departments[0] + " - " + averageSalary(arrayList, departments[0]) + "$ \t"
-                + departments[1] + " - " + averageSalary(arrayList, departments[1]) + "$ \t"
-                + departments[2] + " - " + averageSalary(arrayList, departments[2]) + "$ \t"
+            + departments[1] + " - " + averageSalary(arrayList, departments[1]) + "$ \t"
+        + departments[2] + " - " + averageSalary(arrayList, departments[2]) + "$ \t"
         );
     }
 
     public static void printUsersByEmail(ArrayList<User> arrayList, String substring) {
+        System.out.println("\nКористувачі з поштою \"gmail.com\": ");
+
         if (substring.contains("@")) {
             System.out.println("error! don't use @");
         }
@@ -119,10 +117,12 @@ public class Main {
     }
 
     public static void printFemaleAdultUAEmployeeEmails(ArrayList<User> arrayList) {
+        System.out.println("\nЕлектронні скриньки працюючих жінок не старших 30ти: ");
+
         for (User value : arrayList) {
             if (value instanceof Employee && value.getGender() == 'F' &&
                     (value.getAge() >= 18 && value.getAge() <= 30) &&
-                    value.getResidenceCountry() == "UA") {
+                        value.getResidenceCountry() == "UA") {
                 String key = value.getEmail();
                 System.out.println(key);
             }
