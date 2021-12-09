@@ -107,6 +107,9 @@ public class Main {
     }
 
     public static void printUsersByEmail(ArrayList<User> arrayList, String substring) {
+        if (substring.contains("@")) {
+            System.out.println("error! don't use @");
+        }
         for (User value : arrayList) {
             if (value.getEmail().contains("@" + substring)) {
                 String key = value.getFullName();
