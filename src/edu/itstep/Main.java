@@ -1,28 +1,28 @@
 package edu.itstep;
 
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class Main {
 
     public static void main(String[] args) {
         List<Human> humans = DataBase.getHumans();
-        //сгруппировать людей по специальностям в разные коллекции
-        //заранее не знаем сколько у нас специальностей
-        //хранить в map(ключ-специальность, значение-список из human)
 
-//        Map<Speciality, List<Human>> map = humans.
-//                stream().
-//                collect(Collectors.groupingBy(Human::getSpeciality));
-//
-//        map.forEach(((speciality, group) -> {
-//            System.out.println(speciality);
-//            group.forEach(System.out::println);
-//        }));
+        Map<String, List<Human>> humansMap = new HashMap<>();
+        for (Human human : humans) {
+            String key = human.getSpeciality().name();
+            if (humansMap.get(key) == null) {
+                humansMap.put(key, new ArrayList<>());
+            }
+            humansMap.get(key).add(human);
+        }
 
-        // імперативно
-//        TODO
-
+        Set<String> groupedHumansKeySet = humansMap.keySet();
+        for (String speciality : groupedHumansKeySet) {
+            List<Human> humanList = humansMap.get(speciality);
+            System.out.println(speciality);
+            for (Human human : humanList) {
+                System.out.println(human);
+            }
+        }
     }
 }
